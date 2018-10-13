@@ -53,3 +53,42 @@ async function buildDex(pokemonCount){
 }
 
 buildDex(1)
+
+function Pokemon(pokemonIndex) {
+  
+  var info = pokemonINfo[pokemonIndex]
+  
+  
+  this.id = info.id
+  
+  this.name = info.name
+  
+  this.image = pokePics[pokemonIndex]
+  
+  
+  this.types = []
+  
+  for(var i = 0; i < info.types.length; i++){
+    var type = info.types[i].type.name
+    this.types.push(type)
+  }
+}
+
+function makePokemonList(pokemonCount){
+  
+  for(var i = 0; i < pokemonCount; i++){
+    
+    pokemon.push(new Pokemon(i))
+  }
+}
+
+async function getPokeon(pokemonCount){
+  pokemon = []
+  await fetchManyPokemon(pokemonCount)
+  await fetchPokemonIages()
+  await makePokemonList (pokemonCOunt)
+  
+}
+  
+
+
