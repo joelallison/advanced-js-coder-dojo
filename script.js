@@ -89,6 +89,22 @@ async function getPokeon(pokemonCount){
   await makePokemonList (pokemonCOunt)
   
 }
+
+async function getPokemon(pokemonCount){
+  if(localStorage.getItem("pokemon") === null) || JSON.parse(localStorage.getItem("pokemon")).length < pokemonCount) {
+    pokemon = []
+    await fetchManyPokemon(pokemonCount)
+    await fetchPokemonImages()
+    await makePokemonList(pokemonCount)
+    
+    localStorage.setItem("pokemon", JSON.stringify(pokemon))
+  }
+  
+  else {
+    pokemon = JSON.parse(localStorage.getItem("pokemon"))
+    
+  }
+}
   
 
 
