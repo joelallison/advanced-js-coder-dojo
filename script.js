@@ -13,3 +13,18 @@ async function fetchManyPokemon(pokemonCount) {
     await fetchPokemon(i)
   }
 }
+
+async function fetchPokemonImage(pokemonInfo) {
+  var imageUrl = pokemonInfo.sprites.front_default
+  
+  var imageResponse = await fetch(imageUrl)
+  
+  var image = await imageResponse.blob()
+  
+  
+  var base64 = await getBase64(image)
+  
+  
+  pokePics.push(base64)
+  
+}
