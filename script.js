@@ -45,7 +45,7 @@ async function getPokemon(pokemonCount){
 async function buildDex(pokemonCount){
   await getPokemon(pokemonCount)
   
-  var display = document.getElementBYId("display")
+  var display = document.getElementById("display")
   display.innerHtml = ""
   var image = document.createElement("img")
   image.src = pokePics[0]
