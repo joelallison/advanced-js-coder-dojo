@@ -36,7 +36,7 @@ async function fetchPokemonImages() {
   }
 }
 
-aync function getPokemon(pokemonCount){
+async function getPokemon(pokemonCount){
   pokemon = []
   await fetchManyPokemon(pokemonCount)
   await fetchPokemonImages()
