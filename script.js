@@ -28,3 +28,28 @@ async function fetchPokemonImage(pokemonInfo) {
   pokePics.push(base64)
   
 }
+
+async function fetchPokemonImages() {
+  for( var i = 0; i < pokemonInfo.length; i++){
+    
+    await fetchPokemonImage(pokemonInfo[i])
+  }
+}
+
+aync function getPokemon(pokemonCount){
+  pokemon = []
+  await fetchManyPokemon(pokemonCount)
+  await fetchPokemonImages()
+}
+
+async function buildDex(pokemonCount){
+  await getPokemon(pokemonCount)
+  
+  var display = document.getElementBYId("display")
+  display.innerHtml = ""
+  var image = document.createElement("img")
+  image.src = pokePics[0]
+  display.appendChild(image)
+}
+
+buildDex(1)
