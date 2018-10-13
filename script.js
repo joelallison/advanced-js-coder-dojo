@@ -56,7 +56,7 @@ buildDex(1)
 
 function Pokemon(pokemonIndex) {
   
-  var info = pokemonINfo[pokemonIndex]
+  var info = pokemonInfo[pokemonIndex]
   
   
   this.id = info.id
